@@ -8,10 +8,10 @@ const availableNotes = [2000, 500, 100, 50, 20, 10, 1]
 checkButton.addEventListener('click', clickHandler)
 
 function clickHandler() {
-    if (cashGiven.value > 0 && billAmount.value > 0) {
+    if (Number(cashGiven.value) > 0 && Number(billAmount.value) > 0) {
         console.log("Amount is valid")
         // Validate if Cash given by the customer is bigger then the Bill Amount
-        if (cashGiven.value >= billAmount.value) {
+        if (Number(cashGiven.value) >= Number(billAmount.value)) {
             console.log(cashGiven.value >= billAmount.value)
             console.log(cashGiven.value + " , " + billAmount.value)
             console.log("cash given is valid")
