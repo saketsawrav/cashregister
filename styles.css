@@ -1,0 +1,53 @@
+root {
+ margin: 0;
+}
+
+body {
+    background-color: darkgreen;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgreen;
+    text-align: center;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: auto;
+    width: 500px;
+}
+
+.heading {
+    font-weight: bold;
+    padding: 1rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+.space {
+    padding: 2rem;
+}
+
+table {
+    border: solid 2px black;
+}
+
+th {
+    border: solid 2px black;
+}
+
+tr {
+    border: solid 2px black;
+}
+
+td {
+    border: solid 1px black;
+    padding: 1rem;
+}
+
+caption {
+    font-weight: bold;
+}

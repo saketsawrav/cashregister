@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cash Register App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Cash Register</h1>
+        <p class="description">Input the Cash given and the Bill Amount to get the tender change to be given.</p>
+        <label for cash-given>Enter the Cash given by the Customer: </label>
+        <input type="text" id="cash-given">
+        <label for bill-amount>Enter the Total amount of the Bill: </label>
+        <input type="text" id="bill-amount">
+        <button id="check-btn">Check</button>
+        <div class="space"></div>
+        <table class="change-given">
+            <caption>Change to be Given: </caption>
+            <tr>
+                <th>No. Of Notes:</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>Notes: </th>
+                <td>2000</td>
+                <td>500</td>
+                <td>100</td>
+                <td>50</td>
+                <td>20</td>
+                <td>10</td>
+                <td>1</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
