@@ -19,6 +19,8 @@ function nextClickHandler() {
     hideErrorMessage()
     if (Number(cashGiven.value) > 0) {
         showBillAmountButton()
+    } else if(typeof cashGiven.value === 'string'){
+        showErrorMessage ("Enter a Number not a string.")
     } else {
         showErrorMessage("Enter a valid Amount to proceed")
     }
@@ -26,7 +28,7 @@ function nextClickHandler() {
 
 function clickHandler() {
     hideErrorMessage()
-    if (Number(cashGiven.value)) {
+    if (Number(cashGiven.value) > 0 && Number(billAmount.value) > 0) {
         // Validate if Cash given by the customer is bigger then the Bill Amount
         if (Number(cashGiven.value) >= Number(billAmount.value)) {
             var totalAmount = cashGiven.value - billAmount.value
@@ -34,6 +36,8 @@ function clickHandler() {
         } else {
             showErrorMessage("The Amount given by the customer is not enough")
         }
+    } else if(typeof billAmount.value === 'string'){
+        showErrorMessage ("Enter a Number not a string.") 
     } else {
         showErrorMessage("The Amount entered is invalid!!")
     }
