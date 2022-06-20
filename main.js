@@ -3,12 +3,27 @@ const billAmount = document.querySelector("#bill-amount")
 const checkButton = document.querySelector("#check-button")
 var errorMessage = document.querySelector("#error-message")
 const noOfNotes = document.querySelectorAll(".no-of-notes")
+const labelBillAmount = document.querySelector(".bill-label")
 const availableNotes = [2000, 500, 100, 50, 20, 10, 1]
+const nextButton = document.querySelector("#next-button")
 
+hideBillAmountButton()
+
+nextButton.addEventListener('click', nextClickHandler)
 checkButton.addEventListener('click', clickHandler)
 
+
+function nextClickHandler() {
+    hideBillAmountButton()
+    if (Number(cashGiven.value) > 0) {
+        showBillAmountButton()
+    } else {
+        errorMessage.innerText = "Enter a valid Amount to proceed"
+    }
+}
+
 function clickHandler() {
-    if (Number(cashGiven.value) > 0 && Number(billAmount.value) > 0) {
+    if (Number(cashGiven.value)) {
         // Validate if Cash given by the customer is bigger then the Bill Amount
         if (Number(cashGiven.value) >= Number(billAmount.value)) {
             var totalAmount = cashGiven.value - billAmount.value
@@ -27,4 +42,16 @@ function calculateChange(amount) {
         amount %= availableNotes[i]
         noOfNotes[i].innerText = changeToBeGiven
     }
+}
+
+function hideBillAmountButton (){
+    billAmount.style.display = "none"
+    checkButton.style.display = "none"
+    labelBillAmount.style.display = "none"
+}
+
+function showBillAmountButton () {
+    billAmount.style.display = "block"
+    checkButton.style.display = "block"
+    labelBillAmount.style.display = "block"
 }
