@@ -8,6 +8,7 @@ const availableNotes = [2000, 500, 100, 50, 20, 10, 1]
 const nextButton = document.querySelector("#next-button")
 
 hideBillAmountButton()
+hideErrorMessage()
 
 nextButton.addEventListener('click', nextClickHandler)
 checkButton.addEventListener('click', clickHandler)
@@ -15,24 +16,26 @@ checkButton.addEventListener('click', clickHandler)
 
 function nextClickHandler() {
     hideBillAmountButton()
+    hideErrorMessage()
     if (Number(cashGiven.value) > 0) {
         showBillAmountButton()
     } else {
-        errorMessage.innerText = "Enter a valid Amount to proceed"
+        showErrorMessage("Enter a valid Amount to proceed")
     }
 }
 
 function clickHandler() {
+    hideErrorMessage()
     if (Number(cashGiven.value)) {
         // Validate if Cash given by the customer is bigger then the Bill Amount
         if (Number(cashGiven.value) >= Number(billAmount.value)) {
             var totalAmount = cashGiven.value - billAmount.value
             calculateChange(totalAmount)
         } else {
-            errorMessage.innerText = "The Amount given by the customer is not enough"
+            showErrorMessage("The Amount given by the customer is not enough")
         }
     } else {
-        errorMessage.innerText = "The Amount entered is invalid!!"
+        showErrorMessage("The Amount entered is invalid!!")
     }
 }
 
@@ -54,4 +57,13 @@ function showBillAmountButton () {
     billAmount.style.display = "block"
     checkButton.style.display = "block"
     labelBillAmount.style.display = "block"
+}
+
+function showErrorMessage(msg) {
+    errorMessage.innerText = msg
+    errorMessage.style.display = "block"
+}
+
+function hideErrorMessage() {
+    errorMessage.style.display = "none"
 }
