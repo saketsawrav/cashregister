@@ -6,13 +6,14 @@ const noOfNotes = document.querySelectorAll(".no-of-notes")
 const labelBillAmount = document.querySelector(".bill-label")
 const availableNotes = [2000, 500, 100, 50, 20, 10, 1]
 const nextButton = document.querySelector("#next-button")
+const inputAmounts = document.querySelectorAll("#cash-given, #bill-amount")
 
+resetInputs()
 hideBillAmountButton()
 hideErrorMessage()
 
 nextButton.addEventListener('click', nextClickHandler)
 checkButton.addEventListener('click', clickHandler)
-
 
 function nextClickHandler() {
     hideBillAmountButton()
@@ -21,8 +22,10 @@ function nextClickHandler() {
         showBillAmountButton()
     } else if(typeof cashGiven.value === 'string'){
         showErrorMessage ("Enter a Number not a string.")
+        resetInputs()
     } else {
         showErrorMessage("Enter a valid Amount to proceed")
+        resetInputs()
     }
 }
 
@@ -37,9 +40,11 @@ function clickHandler() {
             showErrorMessage("The Amount given by the customer is not enough")
         }
     } else if(typeof billAmount.value === 'string'){
-        showErrorMessage ("Enter a Number not a string.") 
+        showErrorMessage ("Enter a Number not a string.")
+        resetInputs()
     } else {
         showErrorMessage("The Amount entered is invalid!!")
+        resetInputs()
     }
 }
 
@@ -70,4 +75,9 @@ function showErrorMessage(msg) {
 
 function hideErrorMessage() {
     errorMessage.style.display = "none"
+}
+
+function resetInputs() {
+    inputAmounts.forEach(input => {
+        input.value = '';})
 }
